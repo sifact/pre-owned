@@ -2,6 +2,7 @@
     {
         "title": "Asus",
 
+        "img": "https://i.ibb.co/8Yxb9Pj/ASUS-Zenbook-14-X-OLED-Space.webp",
         "products": [
             {
                 "title": "Asus Zenbook 14",
@@ -34,6 +35,7 @@
     {
         "title": "Dell",
 
+        "img": "https://i.ibb.co/bsLDX8k/dell-xps-15.webp",
         "products": [
             {
                 "title": "Dell Latitude-4",
@@ -66,6 +68,7 @@
     {
         "title": "HP",
 
+        "img": "https://i.ibb.co/zGPTN5g/HPSpectrex36015.jpg",
         "products": [
             {
                 "title": "hp envy 14",

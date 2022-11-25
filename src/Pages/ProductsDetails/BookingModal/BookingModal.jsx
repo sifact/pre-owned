@@ -38,7 +38,7 @@ const BookingModal = ({ item, setItem, refetch }) => {
                 console.log(data);
                 if (data.acknowledged) {
                     setItem(null);
-                    toast.success("appointment added");
+                    toast.success("Order Done");
                     // refetch();
                 } else {
                     toast.error(data.message);

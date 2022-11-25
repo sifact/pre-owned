@@ -21,7 +21,7 @@ const ProductsDetails = () => {
                     />
                 ))}
             </div>
-            {item && <BookingModal item={item} />}
+            {item && <BookingModal item={item} setItem={setItem} />}
         </div>
     );
 };

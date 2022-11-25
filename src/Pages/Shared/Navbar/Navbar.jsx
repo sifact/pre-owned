@@ -1,16 +1,16 @@
-import React from "react";
-// import { useContext } from "react";
+import React, { useContext } from "react";
+
 import { Link } from "react-router-dom";
-// import { AuthContext } from "../../../Contexts/AuthProvider";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const Navbar = () => {
-    // const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
-    // const handleLogout = () => {
-    //     logOut()
-    //         .then(() => {})
-    //         .catch((e) => console.log(e));
-    // };
+    const handleLogout = () => {
+        logOut()
+            .then(() => {})
+            .catch((e) => console.log(e));
+    };
 
     const menuItems = (
         <React.Fragment>
@@ -19,18 +19,13 @@ const Navbar = () => {
             </li>
 
             <li>
-                <Link to="/appointment">Appointment</Link>
-            </li>
-            <li>
                 <Link to="/about">About</Link>
             </li>
             <li>
                 <Link to="reviews">Reviews</Link>
             </li>
-            <li>
-                <Link to="/dashboard">Dashboard</Link>
-            </li>
-            {/* {user?.uid ? (
+
+            {user?.uid ? (
                 <>
                     <li>
                         <Link to="/dashboard">Dashboard</Link>
@@ -40,28 +35,27 @@ const Navbar = () => {
                     </li>
                 </>
             ) : (
-                <li>
-                    <Link to="/login">Login</Link>
-                </li>
-            )} */}
-            <li>
-                <button>Sign out</button>
-            </li>
-            <li>
-                <Link to="/login">Login</Link>
-            </li>
-            <li>
-                <Link className="btn btn-primary text-white" to="/register">
-                    Sign up
-                </Link>
-            </li>
+                <>
+                    <li>
+                        <Link to="/login">Login</Link>
+                    </li>
+                    <Link
+                        className=" btn btn-primary text-white"
+                        to="/register"
+                    >
+                        Sign up
+                    </Link>
+                </>
+            )}
+
+            <li></li>
         </React.Fragment>
     );
 
     return (
-        <section className="bg-base-200 ">
-            <div className="container flex">
-                <div className="navbar p-0 m-0 ">
+        <section className="bg-base-200">
+            <div className=" flex">
+                <div className="navbar p-0 m-0 container">
                     <div className="navbar-start ">
                         <div className="dropdown">
                             <label
@@ -94,7 +88,7 @@ const Navbar = () => {
                             to="/"
                             className="btn p-0 btn-ghost normal-case text-xl"
                         >
-                            Doctors portal
+                            Reseller
                         </Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">

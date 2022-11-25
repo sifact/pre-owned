@@ -6,7 +6,7 @@ module.exports = {
         themes: [
             {
                 resaleTheme: {
-                    primary: "#7f1d1d",
+                    primary: "#eab308",
                     secondary: "#ef4444",
                     "base-200": "#0E1525",
 

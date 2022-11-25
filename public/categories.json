@@ -1,0 +1,98 @@
+[
+    {
+        "title": "Asus",
+
+        "products": [
+            {
+                "title": "Asus Zenbook 14",
+                "img": "https://i.ibb.co/y5Cdf5s/asus-zenbook-14-2020-05.webp",
+                "location": "Dhaka",
+                "resalePrice": "$499",
+                "originalPrice": "$799",
+                "yearsOfUse": "5",
+                "postedTime": "Nov 20, 22",
+                "seller": {
+                    "name": "Rokibul Hasan",
+                    "verified": false
+                }
+            },
+            {
+                "title": "Asus Zenbook 14X-OLED",
+                "img": "https://i.ibb.co/8Yxb9Pj/ASUS-Zenbook-14-X-OLED-Space.webp",
+                "location": "Panthapath, Dhaka",
+                "resalePrice": "$799",
+                "originalPrice": "$999",
+                "yearsOfUse": "3.5",
+                "postedTime": "Nov 10, 22",
+                "seller": {
+                    "name": "Bob Smith",
+                    "verified": true
+                }
+            }
+        ]
+    },
+    {
+        "title": "Dell",
+
+        "products": [
+            {
+                "title": "Dell Latitude-4",
+                "img": "https://i.ibb.co/4M56s3d/dell-latitude-4.jpg",
+                "location": "Trisal, Mymensingh",
+                "resalePrice": "$899",
+                "originalPrice": "$1399",
+                "yearsOfUse": "$6",
+                "postedTime": "Oct 13, 22",
+                "seller": {
+                    "name": "Sakib Al Hasan",
+                    "verified": true
+                }
+            },
+            {
+                "title": "Dell XPS15",
+                "img": "https://i.ibb.co/bsLDX8k/dell-xps-15.webp",
+                "location": "Pallabi, Mirpuu, Dhaka",
+                "resalePrice": "$399",
+                "originalPrice": "$599",
+                "yearsOfUse": "2",
+                "postedTime": "Oct 20, 22",
+                "seller": {
+                    "name": "Jakir Hossain",
+                    "verified": false
+                }
+            }
+        ]
+    },
+    {
+        "title": "HP",
+
+        "products": [
+            {
+                "title": "hp envy 14",
+                "img": "https://i.ibb.co/d5PLXjb/hp-envy-16.webp",
+                "location": "Tongi Gazipur",
+                "resalePrice": "$899",
+                "originalPrice": "1299",
+                "yearsOfUse": "4.5",
+                "postedTime": "Nov 5, 22",
+                "seller": {
+                    "name": "John Smith",
+                    "verified": false
+                }
+            },
+            {
+                "title": "hp Spectre x360 16",
+                "img": "https://i.ibb.co/DK7BM9k/spectre-16-01.webp",
+                "location": "Chourasta Gazipur",
+                "resalePrice": "$999",
+                "originalPrice": "1499",
+                "yearsOfUse": "6.5",
+                "postedTime": "Nov 7, 22",
+                "seller": {
+                    "name": "Tim Pant",
+                    "verified": true
+                }
+            }
+        ]
+    }
+]

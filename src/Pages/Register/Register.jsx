@@ -32,8 +32,8 @@ const Register = () => {
         createUser(data.email, data.password)
             .then((result) => {
                 const user = result.user;
-                console.log(user);
-                console.log(data.identity);
+                // console.log(user);
+                // console.log(data.identity);
                 toast.success("User Created Successfully", {
                     // icon: "👏",
                     style: {

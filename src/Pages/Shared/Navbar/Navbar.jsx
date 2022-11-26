@@ -102,7 +102,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </div>
-                {/* <label
+                <label
                     htmlFor="dashboardDrawer"
                     tabIndex={2}
                     className="btn btn-ghost lg:hidden"
@@ -121,7 +121,7 @@ const Navbar = () => {
                             d="M4 6h16M4 12h8m-8 6h16"
                         />
                     </svg>
-                </label> */}
+                </label>
             </div>
         </section>
     );

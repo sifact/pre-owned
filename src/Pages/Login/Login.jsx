@@ -25,11 +25,22 @@ const Login = () => {
         googleProviderLogin(googleProvider)
             .then((result) => {
                 const user = result.user;
-
+                const identity = "buyer";
                 const currentUser = {
                     email: user.email,
                 };
                 console.log(currentUser);
+
+                // const storedMail = {};
+                // if (user.email in storedMail) {
+                //     storedMail[user.email] += 1;
+                // } else {
+                //     storedMail[user.email] = 0;
+                // }
+                // console.log(storedMail);
+
+                saveUser(user.displayName, user.email, identity);
+
                 // get jwt token
                 // fetch("https://dental-care-server-six.vercel.app/jwt", {
                 //     method: "POST",
@@ -48,6 +59,23 @@ const Login = () => {
             })
             .catch((e) => console.log(e.message));
     };
+
+    const saveUser = (name, email, identity) => {
+        const user = { name, email, identity };
+        fetch("http://localhost:5000/buyers", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(user),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("save user", data);
+                // setCreatedUserEmail(email);
+            });
+    };
+
     const onSubmit = (data) => {
         setLoginError("");
         signIn(data.email, data.password)

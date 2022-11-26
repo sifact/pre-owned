@@ -14,7 +14,7 @@ const Sellers = () => {
 
     return (
         <div className="m-16">
-            <h2 className="text-3xl mb-8">All Users</h2>
+            <h2 className="text-3xl mb-8">All Sellers</h2>
             <div className="overflow-x-auto w-full ">
                 <table className="table table-zebra w-full">
                     {/* <!-- head --> */}

@@ -19,7 +19,7 @@ const Navbar = () => {
             </li>
 
             <li>
-                <Link to="/about">About</Link>
+                <Link to="/orders">My Orders</Link>
             </li>
 
             {user?.photoURL === "seller" ? (

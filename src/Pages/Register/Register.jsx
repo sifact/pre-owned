@@ -28,10 +28,12 @@ const Register = () => {
 
     const onSubmit = (data) => {
         setSignUpError("");
-        console.log(data.identity);
+
         createUser(data.email, data.password)
             .then((result) => {
                 const user = result.user;
+                console.log(user);
+                console.log(data.identity);
                 toast.success("User Created Successfully", {
                     // icon: "👏",
                     style: {
@@ -42,12 +44,12 @@ const Register = () => {
                 });
                 const userInfo = {
                     displayName: data.name,
-                    identity: data.identity,
+                    photoURL: data.identity,
                 };
                 updateUser(userInfo)
                     .then(() => {
                         if (data.identity === "seller") {
-                            saveUser(data.name, data.email);
+                            saveUser(data.name, data.email, data.identity);
                         }
                         navigate("/");
                     })
@@ -59,8 +61,8 @@ const Register = () => {
             });
     };
 
-    const saveUser = (name, email) => {
-        const user = { name, email };
+    const saveUser = (name, email, identity) => {
+        const user = { name, email, identity };
         fetch("http://localhost:5000/sellers", {
             method: "POST",
             headers: {

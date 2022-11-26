@@ -1,25 +1,41 @@
-import React from "react";
+import React, { useContext } from "react";
 import toast from "react-hot-toast";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const AddProducts = () => {
+    const { user } = useContext(AuthContext);
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
 
         const productName = form.name.value;
         console.log(productName);
-        const price = form.price.value;
+        const resalePrice = form.resalePrice.value;
+        const originalPrice = form.originalPrice.value;
         const phone = form.mobile.value;
         const location = form.location.value;
+        const brand = form.category.value;
+        const yearsOfUse = form.year.value;
+        const description = form.textarea.value;
+        const quality = form.quality.value;
+        const img = form.photoURL.value;
 
         const addedProducts = {
             productName,
-            price,
+            img,
+            sellerName: user?.displayName,
+            resalePrice,
+            originalPrice,
             phone,
             location,
+            yearsOfUse,
+            brand,
+            description,
+            quality,
         };
-        console.log(addedProducts);
-        fetch("http://localhost:5000/addedProducts", {
+
+        fetch(`http://localhost:5000/addedProducts/${brand}`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -29,12 +45,13 @@ const AddProducts = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                if (data.acknowledged) {
-                    toast.success("Order Done");
-                    // refetch();
-                } else {
-                    toast.error(data.message);
+                if (data.ok) {
+                    toast.success("Product Added");
                 }
+                // refetch();
+                // } else {
+                //     toast.error(data.message);
+                // }
             });
         // console.log(booking);
     };
@@ -46,15 +63,28 @@ const AddProducts = () => {
                         <div className="flex gap-8">
                             <div className="form-control w-full">
                                 <label className="label">
-                                    <span className="label-text">Name</span>
+                                    <span className="label-text">
+                                        Product Name
+                                    </span>
                                 </label>
                                 <input
                                     name="name"
                                     type="text"
-                                    // defaultValue="test"
-
-                                    placeholder="name"
+                                    placeholder="Product Name"
                                     // name="email"
+                                    className="input input-bordered"
+                                />
+                            </div>
+                            <div className="form-control w-full">
+                                <label className="label">
+                                    <span className="label-text">
+                                        resalePrice
+                                    </span>
+                                </label>
+                                <input
+                                    name="resalePrice"
+                                    type="text"
+                                    placeholder="resalePrice"
                                     className="input input-bordered"
                                 />
                             </div>
@@ -63,26 +93,11 @@ const AddProducts = () => {
                                     <span className="label-text">Price</span>
                                 </label>
                                 <input
-                                    name="price"
-                                    type="price"
-                                    placeholder="price"
+                                    name="originalPrice"
+                                    type="text"
+                                    placeholder="OriginalPrice"
                                     className="input input-bordered"
                                 />
-                            </div>
-                            <div className="form-control w-full">
-                                <label className="label">
-                                    <span className="label-text">Quality</span>
-                                </label>
-                                <select
-                                    name="quality"
-                                    className="select w-full input-bordered mb-6"
-                                >
-                                    <option value="user" selected>
-                                        excellent
-                                    </option>
-                                    <option value="seller">good</option>
-                                    <option value="seller">fair</option>
-                                </select>
                             </div>
                         </div>
                         <div className="flex gap-8">
@@ -132,14 +147,28 @@ const AddProducts = () => {
                                     name="category"
                                     className="select w-full input-bordered mb-6"
                                 >
-                                    <option value="user" selected>
+                                    <option value="Asus" selected>
                                         Asus
                                     </option>
-                                    <option value="seller">Dell</option>
-                                    <option value="seller">HP</option>
+                                    <option value="Dell">Dell</option>
+                                    <option value="HP">HP</option>
                                 </select>
                             </div>
-
+                            <div className="form-control w-full">
+                                <label className="label">
+                                    <span className="label-text">Quality</span>
+                                </label>
+                                <select
+                                    name="quality"
+                                    className="select w-full input-bordered mb-6"
+                                >
+                                    <option value="excellent" selected>
+                                        excellent
+                                    </option>
+                                    <option value="good">good</option>
+                                    <option value="fair">fair</option>
+                                </select>
+                            </div>
                             <div className="form-control w-full">
                                 <label className="label">
                                     <span className="label-text">
@@ -153,7 +182,17 @@ const AddProducts = () => {
                                 ></textarea>
                             </div>
                         </div>
-
+                        <div className="form-control ">
+                            <label className="label">
+                                <span className="label-text">Photo URL</span>
+                            </label>
+                            <input
+                                name="photoURL"
+                                type="text"
+                                placeholder="photoURL"
+                                className="input input-bordered"
+                            />
+                        </div>
                         <div className=" w-full flex justify-center mt-6">
                             <button className="btn btn-wide btn-primary">
                                 Submit

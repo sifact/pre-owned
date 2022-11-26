@@ -24,7 +24,7 @@ const ProductDetails = ({ product, setItem }) => {
                     <p>Resale Price: {resalePrice}</p>
                     <p>Years of Used: {yearsOfUse}</p>
                     <p>Posted Time: {postedTime}</p>
-                    <p> {seller.name}</p>
+                    <p> {seller?.name}</p>
                     <div className="card-actions justify-end">
                         <label
                             htmlFor="bookingModal"

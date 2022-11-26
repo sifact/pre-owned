@@ -22,9 +22,13 @@ const Navbar = () => {
                 <Link to="/about">About</Link>
             </li>
 
-            <li>
-                <Link to="/addProduct">Add Products</Link>
-            </li>
+            {user?.photoURL === "seller" ? (
+                <li>
+                    <Link to="/addProduct">Add Products</Link>
+                </li>
+            ) : (
+                ""
+            )}
 
             {user?.uid ? (
                 <>

@@ -28,7 +28,7 @@ const Register = () => {
 
     const onSubmit = (data) => {
         setSignUpError("");
-
+        console.log(data.identity);
         createUser(data.email, data.password)
             .then((result) => {
                 const user = result.user;
@@ -42,10 +42,13 @@ const Register = () => {
                 });
                 const userInfo = {
                     displayName: data.name,
+                    identity: data.identity,
                 };
                 updateUser(userInfo)
                     .then(() => {
-                        // saveUser(data.name, data.email);
+                        if (data.identity === "seller") {
+                            saveUser(data.name, data.email);
+                        }
                         navigate("/");
                     })
                     .catch((err) => console.log(err));
@@ -56,21 +59,21 @@ const Register = () => {
             });
     };
 
-    // const saveUser = (name, email) => {
-    //     const user = { name, email };
-    //     fetch("http://localhost:5000/users", {
-    //         method: "POST",
-    //         headers: {
-    //             "content-type": "application/json",
-    //         },
-    //         body: JSON.stringify(user),
-    //     })
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             console.log("save user", data);
-    //             setCreatedUserEmail(email);
-    //         });
-    // };
+    const saveUser = (name, email) => {
+        const user = { name, email };
+        fetch("http://localhost:5000/sellers", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(user),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("save user", data);
+                // setCreatedUserEmail(email);
+            });
+    };
 
     return (
         <div className="my-16">
@@ -143,14 +146,20 @@ const Register = () => {
                                     {errors.password?.message}
                                 </span>
                             )}
-                            {/* <label className="label">
-                                <a
-                                    href="#"
-                                    className="label-text-alt link link-hover"
-                                >
-                                    Forgot password?
-                                </a>
-                            </label> */}
+
+                            <label className="label">
+                                <span className="label-text">Pick one</span>
+                            </label>
+                            <select
+                                name="identity"
+                                {...register("identity", { required: true })}
+                                className="select w-full input-bordered mb-6"
+                            >
+                                <option value="user" selected>
+                                    user
+                                </option>
+                                <option value="seller">seller</option>
+                            </select>
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-accent">Sign up</button>

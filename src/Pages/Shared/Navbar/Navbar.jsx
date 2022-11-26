@@ -21,8 +21,9 @@ const Navbar = () => {
             <li>
                 <Link to="/about">About</Link>
             </li>
+
             <li>
-                <Link to="reviews">Reviews</Link>
+                <Link to="/addProduct">Add Products</Link>
             </li>
 
             {user?.uid ? (

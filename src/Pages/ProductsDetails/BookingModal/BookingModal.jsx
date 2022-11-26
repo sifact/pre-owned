@@ -74,14 +74,7 @@ const BookingModal = ({ item, setItem, refetch }) => {
                             value={`Resale Price: ${resalePrice}`}
                             className="input input-bordered w-full mb-6"
                         />
-                        {/* <select
-                            name="slot"
-                            className="select w-full input-bordered mb-6"
-                        >
-                            <option value={} key={idx}>
-                                    {}
-                                </option>
-                        </select> */}
+
                         <input
                             type="text"
                             name="name"

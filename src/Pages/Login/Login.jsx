@@ -3,14 +3,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
-// import { AuthContext } from "../../Contexts/AuthProvider";
-// import useToken from "../../hooks/useToken";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleProviderLogin } = useContext(AuthContext);
     const [loginError, setLoginError] = useState("");
-    // const [loginUserEmail, setLoginUserEmail] = useState("");
-    // const [token] = useToken(loginUserEmail);
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -22,10 +19,35 @@ const Login = () => {
         formState: { errors },
     } = useForm();
 
-    // if (token) {
-    //     navigate(from, { replace: true });
-    // }
+    const googleProvider = new GoogleAuthProvider();
 
+    const handleGoogleSignIn = () => {
+        googleProviderLogin(googleProvider)
+            .then((result) => {
+                const user = result.user;
+
+                const currentUser = {
+                    email: user.email,
+                };
+                console.log(currentUser);
+                // get jwt token
+                // fetch("https://dental-care-server-six.vercel.app/jwt", {
+                //     method: "POST",
+                //     headers: {
+                //         "content-type": "application/json",
+                //     },
+                //     body: JSON.stringify(currentUser),
+                // })
+                //     .then((res) => res.json())
+                //     .then((data) => {
+                //         console.log(data);
+                //         localStorage.setItem("dental-token", data.token);
+                //         navigate(from, { replace: true });
+                //     });
+                navigate(from, { replace: true });
+            })
+            .catch((e) => console.log(e.message));
+    };
     const onSubmit = (data) => {
         setLoginError("");
         signIn(data.email, data.password)
@@ -92,14 +114,6 @@ const Login = () => {
                                     {errors.password?.message}
                                 </span>
                             )}
-                            <label className="label">
-                                <a
-                                    href="#"
-                                    className="label-text-alt link link-hover"
-                                >
-                                    Forgot password?
-                                </a>
-                            </label>
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-accent">Login</button>
@@ -111,8 +125,12 @@ const Login = () => {
                                 Create new account
                             </Link>{" "}
                         </p>
+                        <div className="divider">OR</div>
                     </form>
-                    <button className="btn btn-outline btn-accent">
+                    <button
+                        onClick={handleGoogleSignIn}
+                        className="btn btn-accent "
+                    >
                         Continue with google
                     </button>
                 </div>

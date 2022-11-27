@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
-const MyProduct = ({ product }) => {
+const MyProduct = ({ product, handleDelete }) => {
     const {
         img,
         productName,
@@ -57,7 +57,12 @@ const MyProduct = ({ product }) => {
                     </div>
 
                     <div className="card-actions justify-center">
-                        <button className="btn btn-sm">delete</button>
+                        <button
+                            onClick={() => handleDelete(_id)}
+                            className="btn btn-sm"
+                        >
+                            delete
+                        </button>
                     </div>
 
                     {/* <p>Years of Used: {yearsOfUse}</p> */}

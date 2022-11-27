@@ -18,20 +18,16 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
             </li>
 
-            <li>
+            {/* <li>
                 <Link to="/orders">My Orders</Link>
             </li>
             <li>
                 <Link to="/addedProducts">My Products</Link>
-            </li>
+            </li> */}
 
-            {user?.photoURL === "seller" ? (
-                <li>
-                    <Link to="/addProduct">Add Products</Link>
-                </li>
-            ) : (
-                ""
-            )}
+            {/* <li>
+                <Link to="/addProduct">Add Products</Link>
+            </li> */}
 
             {user?.uid ? (
                 <>

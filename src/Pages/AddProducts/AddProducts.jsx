@@ -33,6 +33,7 @@ const AddProducts = () => {
             brand,
             description,
             quality,
+            email: user?.email,
         };
 
         fetch(`http://localhost:5000/addedProducts/${brand}`, {
@@ -48,12 +49,21 @@ const AddProducts = () => {
                 if (data.ok) {
                     toast.success("Product Added");
                 }
-                // refetch();
-                // } else {
-                //     toast.error(data.message);
-                // }
             });
-        // console.log(booking);
+        fetch(`http://localhost:5000/addedProducts`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(addedProducts),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.ok) {
+                    toast.success("Product Added");
+                }
+            });
     };
     return (
         <div className="my-16 container">

@@ -21,6 +21,9 @@ const Navbar = () => {
             <li>
                 <Link to="/orders">My Orders</Link>
             </li>
+            <li>
+                <Link to={`/products/${user?.email}`}>My Products</Link>
+            </li>
 
             {user?.photoURL === "seller" ? (
                 <li>

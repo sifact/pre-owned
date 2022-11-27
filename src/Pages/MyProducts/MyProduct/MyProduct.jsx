@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const MyProduct = ({ product }) => {
     const {
@@ -14,7 +15,23 @@ const MyProduct = ({ product }) => {
 
     const handleAdd = (product) => {
         console.log(product);
+
+        fetch(`http://localhost:5000/advertise`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(product),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.acknowledged) {
+                    toast.success("Advertise Successfully");
+                }
+            });
     };
+
     return (
         <div className="flex justify-center">
             <div className="card w-96 glass ">

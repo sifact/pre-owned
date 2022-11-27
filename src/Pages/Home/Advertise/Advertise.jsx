@@ -1,7 +1,7 @@
 import React from "react";
 
 const Advertise = () => {
-    return <div>Advertise</div>;
+    return <section className="my-32"></section>;
 };
 
 export default Advertise;

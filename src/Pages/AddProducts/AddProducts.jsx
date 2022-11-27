@@ -59,10 +59,10 @@ const AddProducts = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
-                if (data.ok) {
-                    toast.success("Product Added");
-                }
+                // console.log(data);
+                // if (data.ok) {
+                //     toast.success("Product Added");
+                // }
             });
     };
     return (

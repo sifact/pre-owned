@@ -22,7 +22,7 @@ const Navbar = () => {
                 <Link to="/orders">My Orders</Link>
             </li>
             <li>
-                <Link to={`/products/${user?.email}`}>My Products</Link>
+                <Link to="/addedProducts">My Products</Link>
             </li>
 
             {user?.photoURL === "seller" ? (

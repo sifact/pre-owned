@@ -31,31 +31,23 @@ const Login = () => {
                 };
                 console.log(currentUser);
 
-                // const storedMail = {};
-                // if (user.email in storedMail) {
-                //     storedMail[user.email] += 1;
-                // } else {
-                //     storedMail[user.email] = 0;
-                // }
-                // console.log(storedMail);
+                // jwt
 
+                fetch("http://localhost:5000/jwt", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(currentUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        localStorage.setItem("resellerToken", data.token);
+                        // navigate(from, { replace: true });
+                        navigate(from, { replace: true });
+                    });
                 saveUser(user.displayName, user.email, identity);
-
-                // get jwt token
-                // fetch("https://dental-care-server-six.vercel.app/jwt", {
-                //     method: "POST",
-                //     headers: {
-                //         "content-type": "application/json",
-                //     },
-                //     body: JSON.stringify(currentUser),
-                // })
-                //     .then((res) => res.json())
-                //     .then((data) => {
-                //         console.log(data);
-                //         localStorage.setItem("dental-token", data.token);
-                //         navigate(from, { replace: true });
-                //     });
-                navigate(from, { replace: true });
             })
             .catch((e) => console.log(e.message));
     };
@@ -82,7 +74,26 @@ const Login = () => {
             .then((res) => {
                 const user = res.user;
                 // setLoginUserEmail(data.email);
-                navigate(from, { replace: true });
+                const currentUser = {
+                    email: user.email,
+                };
+                // jwt
+
+                fetch("http://localhost:5000/jwt", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(currentUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        localStorage.setItem("resellerToken", data.token);
+                        // navigate(from, { replace: true });
+                        navigate(from, { replace: true });
+                    });
+
                 console.log(user);
             })
             .catch((e) => {

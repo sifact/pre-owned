@@ -9,6 +9,7 @@ import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import MyOrders from "../../Pages/MyOrders/MyOrders";
 import MyProducts from "../../Pages/MyProducts/MyProducts";
+import NotFound from "../../Pages/NotFound/NotFound";
 import ProductsDetails from "../../Pages/ProductsDetails/ProductsDetails";
 import Register from "../../Pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register />,
             },
+            {
+                path: "*",
+                element: <NotFound />,
+            },
         ],
     },
     {
@@ -72,6 +77,10 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard/addedProducts",
                 element: <MyProducts />,
+            },
+            {
+                path: "*",
+                element: <NotFound />,
             },
         ],
     },

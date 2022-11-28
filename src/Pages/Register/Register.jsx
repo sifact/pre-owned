@@ -42,16 +42,36 @@ const Register = () => {
                         color: "#fff",
                     },
                 });
+
+                const currentUser = {
+                    email: user.email,
+                };
+                // jwt
+
+                fetch("http://localhost:5000/jwt", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(currentUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        localStorage.setItem("resellerToken", data.token);
+                        // navigate(from, { replace: true });
+                        navigate("/");
+                    });
                 const userInfo = {
                     displayName: data.name,
                     photoURL: data.identity,
                 };
+
                 updateUser(userInfo)
                     .then(() => {
                         if (data.identity === "seller") {
                             saveUser(data.name, data.email, data.identity);
                         }
-                        navigate("/");
                     })
                     .catch((err) => console.log(err));
             })

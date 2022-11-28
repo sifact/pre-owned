@@ -9,14 +9,20 @@ const MyProducts = () => {
     const [products, setProducts] = useState([]);
     // const [email, setEmail] = useState();
     useEffect(() => {
-        fetch(`http://localhost:5000/addedProducts/${user?.email}`)
+        fetch(`http://localhost:5000/addedProducts/${user?.email}`, {
+            headers: {
+                authorization: `bearer ${localStorage.getItem(
+                    "resellerToken"
+                )}`,
+            },
+        })
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, [user?.email]);
 
     const handleDelete = (_id) => {
         const agree = window.confirm(
-            "Are you sure you wanna delete this review?"
+            "Are you sure you wanna delete this Product?"
         );
 
         if (agree) {

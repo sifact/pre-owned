@@ -1,28 +1,41 @@
-import React, { useContext, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
+import React, { useContext, useEffect, useState } from "react";
+// import { useQuery } from "@tanstack/react-query";
 import MyOrder from "./MyOrder/MyOrder";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
+    const [orders, setOrders] = useState([]);
 
-    const { data: orders = [] } = useQuery({
-        queryKey: ["orders", user?.email],
-        queryFn: async () => {
-            const res = await fetch(
-                `http://localhost:5000/bookings/${user?.email}`,
-                {
-                    headers: {
-                        authorization: `bearer ${localStorage.getItem(
-                            "resellerToken"
-                        )}`,
-                    },
-                }
-            );
-            const data = await res.json();
-            return data;
-        },
-    });
+    // const { data: orders = [] } = useQuery({
+    //     queryKey: ["orders", user?.email],
+    //     queryFn: async () => {
+    //         const res = await fetch(
+    //             `http://localhost:5000/bookings/${user?.email}`,
+    //             {
+    //                 headers: {
+    //                     authorization: `bearer ${localStorage.getItem(
+    //                         "resellerToken"
+    //                     )}`,
+    //                 },
+    //             }
+    //         );
+    //         const data = await res.json();
+    //         return data;
+    //     },
+    // });
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/bookings/${user?.email}`, {
+            headers: {
+                authorization: `bearer ${localStorage.getItem(
+                    "resellerToken"
+                )}`,
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => setOrders(data));
+    }, [user?.email]);
 
     return (
         <div className="my-32 container  ">

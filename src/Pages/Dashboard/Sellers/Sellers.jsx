@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Sellers = () => {
-    const { data: sellers = [] } = useQuery({
+    // const [sellers, setSellers] = useState([]);
+    const { data: sellers = [], refetch } = useQuery({
         queryKey: ["sellers"],
         queryFn: async () => {
             const res = await fetch("http://localhost:5000/sellers");
@@ -12,6 +14,48 @@ const Sellers = () => {
         },
     });
 
+    const handleMakeAdmin = (id) => {
+        fetch(`http://localhost:5000/sellers/admin/${id}`, {
+            method: "PUT",
+            headers: {
+                authorization: `bearer ${localStorage.getItem(
+                    "resellerToken"
+                )}`,
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    toast.success("Make Admin Successfully");
+                    refetch();
+                }
+            });
+    };
+
+    const handleDelete = (_id) => {
+        const agree = window.confirm(
+            "Are you sure you wanna delete this Product?"
+        );
+
+        if (agree) {
+            fetch(`http://localhost:5000/seller/delete/${_id}`, {
+                method: "DELETE",
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        toast.success("Seller Deleted Successfully");
+                        // const remainingReviews = sellers.filter(
+                        //     (rev) => rev._id !== _id
+                        // );
+                        // setSellers(remainingReviews);
+                        refetch();
+                    }
+                });
+        }
+    };
     return (
         <div className="m-16">
             <h2 className="text-3xl mb-8">All Sellers</h2>
@@ -36,12 +80,24 @@ const Sellers = () => {
                                 <td>{user.email}</td>
                                 <td>
                                     {" "}
-                                    <Link className="btn btn-sm">
-                                        Admin
-                                    </Link>{" "}
+                                    {user?.role !== "admin" && (
+                                        <Link
+                                            onClick={() =>
+                                                handleMakeAdmin(user._id)
+                                            }
+                                            className="btn btn-sm"
+                                        >
+                                            Admin
+                                        </Link>
+                                    )}{" "}
                                 </td>
                                 <td>
-                                    <Link className="btn btn-sm">Delete</Link>
+                                    <Link
+                                        className="btn btn-sm"
+                                        onClick={() => handleDelete(user._id)}
+                                    >
+                                        Delete
+                                    </Link>
                                 </td>
                             </tr>
                         ))}

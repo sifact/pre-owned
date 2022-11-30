@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layouts/DashboardLayout";
 import Main from "../../Layouts/Main";
 import AddProducts from "../../Pages/AddProducts/AddProducts";
+import Blog from "../../Pages/Blog/Blog";
 import Buyers from "../../Pages/Dashboard/Buyers/Buyers";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import Sellers from "../../Pages/Dashboard/Sellers/Sellers";
@@ -13,6 +14,9 @@ import NotFound from "../../Pages/NotFound/NotFound";
 import ProductsDetails from "../../Pages/ProductsDetails/ProductsDetails";
 import Register from "../../Pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
+import BuyerRoute from "../BuyerRoute/BuyerRoute";
 
 const router = createBrowserRouter([
     {
@@ -43,6 +47,10 @@ const router = createBrowserRouter([
                 element: <Register />,
             },
             {
+                path: "/blog",
+                element: <Blog />,
+            },
+            {
                 path: "*",
                 element: <NotFound />,
             },
@@ -59,25 +67,42 @@ const router = createBrowserRouter([
         ),
         children: [
             {
-                path: "/dashboard",
-                element: <Sellers />,
+                path: "/dashboard/seller",
+                element: (
+                    <AdminRoute>
+                        <Sellers />
+                    </AdminRoute>
+                ),
             },
             {
                 path: "/dashboard/buyers",
-                element: <Buyers />,
+                element: (
+                    <AdminRoute>
+                        <Buyers />
+                    </AdminRoute>
+                ),
             },
             {
                 path: "/dashboard/addProduct",
-                element: <AddProducts />,
+                element: (
+                    <SellerRoute>
+                        <AddProducts />
+                    </SellerRoute>
+                ),
+            },
+            {
+                path: "/dashboard/addedProducts",
+                element: (
+                    <SellerRoute>
+                        <MyProducts />
+                    </SellerRoute>
+                ),
             },
             {
                 path: "/dashboard/orders",
                 element: <MyOrders />,
             },
-            {
-                path: "/dashboard/addedProducts",
-                element: <MyProducts />,
-            },
+
             {
                 path: "*",
                 element: <NotFound />,

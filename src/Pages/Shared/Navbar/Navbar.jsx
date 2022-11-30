@@ -25,15 +25,20 @@ const Navbar = () => {
                 <Link to="/addedProducts">My Products</Link>
             </li> */}
 
-            {/* <li>
-                <Link to="/addProduct">Add Products</Link>
-            </li> */}
+            <li>
+                <Link to="/blog">Blog</Link>
+            </li>
 
             {user?.uid ? (
                 <>
                     <li>
                         <Link to="/dashboard">Dashboard</Link>
                     </li>
+                    <li>
+                        {" "}
+                        <button>{`Hi ${user?.displayName}`}</button>
+                    </li>
+
                     <li>
                         <button onClick={handleLogout}>Sign out</button>
                     </li>
@@ -90,9 +95,9 @@ const Navbar = () => {
                         </div>
                         <Link
                             to="/"
-                            className="btn p-0 btn-ghost normal-case text-xl"
+                            className="btn p-0 btn-ghost normal-case text-xl font-bold text-primary"
                         >
-                            Reseller
+                            Pre-Owned
                         </Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">

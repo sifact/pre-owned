@@ -8,7 +8,7 @@ module.exports = {
                 resaleTheme: {
                     primary: "#eab308",
                     secondary: "#ef4444",
-                    "base-200": "#0E1525",
+                    // "base-200": "#0E1525",
 
                     accent: "#3A4256",
                     neutral: "#3D4451",

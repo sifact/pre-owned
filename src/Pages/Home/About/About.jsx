@@ -8,7 +8,7 @@ const About = () => {
                 <img
                     src={img}
                     alt=""
-                    className="max-w-sm rounded-lg shadow-2xl"
+                    className="lg:max-w-sm w-3/4 rounded-lg shadow-2xl"
                 />
                 <div>
                     <p className="py-6 lg:pl-20">

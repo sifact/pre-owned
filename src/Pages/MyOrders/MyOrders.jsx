@@ -11,7 +11,7 @@ const MyOrders = () => {
     //     queryKey: ["orders", user?.email],
     //     queryFn: async () => {
     //         const res = await fetch(
-    //             `http://localhost:5000/bookings/${user?.email}`,
+    //             `https://assignment-12-server-brown.vercel.app/bookings/${user?.email}`,
     //             {
     //                 headers: {
     //                     authorization: `bearer ${localStorage.getItem(
@@ -26,13 +26,16 @@ const MyOrders = () => {
     // });
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bookings/${user?.email}`, {
-            headers: {
-                authorization: `bearer ${localStorage.getItem(
-                    "resellerToken"
-                )}`,
-            },
-        })
+        fetch(
+            `https://assignment-12-server-brown.vercel.app/bookings/${user?.email}`,
+            {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem(
+                        "resellerToken"
+                    )}`,
+                },
+            }
+        )
             .then((res) => res.json())
             .then((data) => setOrders(data));
     }, [user?.email]);

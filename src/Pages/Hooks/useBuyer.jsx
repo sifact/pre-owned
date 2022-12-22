@@ -6,7 +6,9 @@ const useBuyer = (email) => {
 
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/buyers/identity/${email}`)
+            fetch(
+                `https://assignment-12-server-brown.vercel.app/buyers/identity/${email}`
+            )
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);

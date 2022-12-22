@@ -11,7 +11,9 @@ const ProductsDetails = () => {
 
     return (
         <div className="container my-20">
-            <h1 className="text-3xl my-12 text-center">{title} collections</h1>
+            <h1 className="text-3xl my-12 text-center text-white">
+                {title} collections
+            </h1>
             <div className="grid gap-4 grid-cols-1 md:grid-col-2 lg:grid-cols-2 justify-center ">
                 {products.map((product, idx) => (
                     <ProductDetails

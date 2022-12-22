@@ -9,13 +9,16 @@ const MyProducts = () => {
     const [products, setProducts] = useState([]);
     // const [email, setEmail] = useState();
     useEffect(() => {
-        fetch(`http://localhost:5000/addedProducts/${user?.email}`, {
-            headers: {
-                authorization: `bearer ${localStorage.getItem(
-                    "resellerToken"
-                )}`,
-            },
-        })
+        fetch(
+            `https://assignment-12-server-brown.vercel.app/addedProducts/${user?.email}`,
+            {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem(
+                        "resellerToken"
+                    )}`,
+                },
+            }
+        )
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, [user?.email]);
@@ -26,9 +29,12 @@ const MyProducts = () => {
         );
 
         if (agree) {
-            fetch(`http://localhost:5000/addedProducts/${_id}`, {
-                method: "DELETE",
-            })
+            fetch(
+                `https://assignment-12-server-brown.vercel.app/addedProducts/${_id}`,
+                {
+                    method: "DELETE",
+                }
+            )
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);

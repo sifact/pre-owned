@@ -1,5 +1,4 @@
-import React from "react";
-
+import { MdVerified } from "react-icons/md";
 const ProductDetails = ({ product, setItem }) => {
     const {
         title,
@@ -18,13 +17,20 @@ const ProductDetails = ({ product, setItem }) => {
                     <img src={img} alt="car!" />
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title">{title}</h2>
+                    <h2 className="card-title text-white">{title}</h2>
                     <p>Location: {location}</p>
                     <p>Original Price: {originalPrice}</p>
                     <p>Resale Price: {resalePrice}</p>
                     <p>Years of Used: {yearsOfUse}</p>
                     <p>Posted Time: {postedTime}</p>
-                    <p> {seller?.name}</p>
+                    <p className="flex">
+                        {" "}
+                        <span> {seller?.name} </span>
+                        <span className="ml-2">
+                            {" "}
+                            {seller?.verified && <MdVerified />}
+                        </span>
+                    </p>
                     <div className="card-actions justify-end">
                         <label
                             htmlFor="bookingModal"

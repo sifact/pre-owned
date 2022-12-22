@@ -16,7 +16,7 @@ const MyProduct = ({ product, handleDelete }) => {
     const handleAdd = (product) => {
         console.log(product);
 
-        fetch(`http://localhost:5000/advertise`, {
+        fetch(`https://assignment-12-server-brown.vercel.app/advertise`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",

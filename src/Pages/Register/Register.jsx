@@ -48,7 +48,7 @@ const Register = () => {
                 };
                 // jwt
 
-                fetch("http://localhost:5000/jwt", {
+                fetch("https://assignment-12-server-brown.vercel.app/jwt", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -83,7 +83,7 @@ const Register = () => {
 
     const saveUser = (name, email, identity) => {
         const user = { name, email, identity };
-        fetch("http://localhost:5000/sellers", {
+        fetch("https://assignment-12-server-brown.vercel.app/sellers", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -102,7 +102,7 @@ const Register = () => {
             <div className="hero">
                 <div className="card-body border w-[386px] bg-base-200">
                     <form onSubmit={handleSubmit(onSubmit)} className=" ">
-                        <h1 className="font-semibold text-3xl text-center">
+                        <h1 className="font-semibold text-3xl text-center text-white">
                             Register
                         </h1>
                         {signUpError && (
@@ -193,11 +193,7 @@ const Register = () => {
                                 Log in
                             </Link>{" "}
                         </p>
-                        <div className="divider">OR</div>
                     </form>
-                    <button className="btn btn-accent ">
-                        Continue with google
-                    </button>
                 </div>
             </div>
         </div>

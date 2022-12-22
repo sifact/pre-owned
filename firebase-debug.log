@@ -1,0 +1,137 @@
+[debug] [2022-12-02T13:19:48.880Z] ----------------------------------------------------------------------
+[debug] [2022-12-02T13:19:48.882Z] Command:       G:\Program Files\nodejs\node.exe G:\Users\sifat\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-12-02T13:19:48.883Z] CLI Version:   11.16.1
+[debug] [2022-12-02T13:19:48.883Z] Platform:      win32
+[debug] [2022-12-02T13:19:48.883Z] Node Version:  v16.18.0
+[debug] [2022-12-02T13:19:48.885Z] Time:          Fri Dec 02 2022 19:19:48 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-12-02T13:19:48.885Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-02T13:19:49.009Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-02T13:19:49.009Z] > authorizing via signed-in user (sifatami596@gmail.com)
+[debug] [2022-12-02T13:19:49.009Z] [iam] checking project reseller-1b724 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-02T13:19:49.014Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions [none]
+[debug] [2022-12-02T13:19:49.015Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions x-goog-quota-user=projects/reseller-1b724
+[debug] [2022-12-02T13:19:49.015Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-02T13:20:00.534Z] [iam] error while checking permissions, command may fail: FirebaseError: Failed to make request to https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions
+[debug] [2022-12-02T13:20:00.535Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/reseller-1b724 [none]
+[debug] [2022-12-02T13:20:03.299Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/reseller-1b724 200
+[debug] [2022-12-02T13:20:03.299Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/reseller-1b724 {"projectId":"reseller-1b724","projectNumber":"868111558377","displayName":"reseller","name":"projects/reseller-1b724","resources":{"hostingSite":"reseller-1b724"},"state":"ACTIVE","etag":"1_122aaac1-62d1-4a89-8d4c-185de68e3be6"}
+[info] 
+[info] === Deploying to 'reseller-1b724'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-12-02T13:20:03.311Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/reseller-1b724/versions [none]
+[debug] [2022-12-02T13:20:03.311Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/reseller-1b724/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-12-02T13:20:05.939Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/reseller-1b724/versions 200
+[debug] [2022-12-02T13:20:05.939Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/reseller-1b724/versions {"name":"projects/868111558377/sites/reseller-1b724/versions/2d1c880e626e1744","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[reseller-1b724]: beginning deploy... 
+[info] i  hosting[reseller-1b724]: found 18 files in build 
+[debug] [2022-12-02T13:20:05.960Z] [hosting] uploading with 200 concurrency
+[debug] [2022-12-02T13:20:05.972Z] [hosting] hash cache [YnVpbGQ] stored for 18 files
+[debug] [2022-12-02T13:20:05.972Z] [hosting][hash queue][FINAL] {"max":4,"min":0,"avg":0,"active":0,"complete":18,"success":18,"errored":0,"retried":0,"total":18,"elapsed":8}
+[debug] [2022-12-02T13:20:05.973Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/868111558377/sites/reseller-1b724/versions/2d1c880e626e1744:populateFiles [none]
+[debug] [2022-12-02T13:20:05.973Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/868111558377/sites/reseller-1b724/versions/2d1c880e626e1744:populateFiles {"files":{"/asset-manifest.json":"b8dcb52f96f01c9f1f806b8927b8e43091115032fb6005012ea491236961cc55","/categories.json":"9e03ed9bc0bdc44b925abba2a5d9caf5aeef326bcae641e53248923b5cbd082b","/favicon.ico":"eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9","/index.html":"7aec3080515fb66d5af21ed3c783d8ea3c0661b7dde901bd24ce51b0fea4390e","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/products.json":"46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/static/css/main.8597dada.css":"4979216eafaa8bfc389f0beed0856d8e6bc191e6c8dd5d6baae5471342412df5","/static/css/main.8597dada.css.map":"c42b5ddbe66aaaee43607914bf018da67fbf35b759ab10de8efa388e325c78cc","/static/js/main.2f9bef06.js":"234dc043d490e7d219fe5c0799f26d8d4625629f205ba83f1e300008f9ef90a3","/static/js/main.2f9bef06.js.LICENSE.txt":"f621b4e7f4e61953028a8d52b85cfaaac237bfffcb40034341de36786ecc3b16","/static/js/main.2f9bef06.js.map":"878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b","/static/media/404.40e3daac9b152a3ac693.jpg":"c6cac5c620d2fdbdaaac08dd2fc6f338801b07c151b40fbad8fcdb40135e0395","/static/media/banner1.939c742fa5c1db588c14.jpg":"ee53f57508ddb402acf8cf396dc2027de0bc301aab443e910ef9734b7f21c556","/static/media/banner2.b6b1a07e79a0989edefd.jpg":"fe2ca52d6b2ff6aaba07dae63e8b5e2ba1633f650a183d0efd16ba01273c78c3","/static/media/banner3.9d2e43df716f43929a6b.jpg":"de2b51e34c129dd9143f3eb8982833a96526780df3fa5e6039744da2df2b5de4"}}
+[debug] [2022-12-02T13:20:07.122Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/868111558377/sites/reseller-1b724/versions/2d1c880e626e1744:populateFiles 200
+[debug] [2022-12-02T13:20:07.126Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/868111558377/sites/reseller-1b724/versions/2d1c880e626e1744:populateFiles {"uploadRequiredHashes":["878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/2d1c880e626e1744/files"}
+[debug] [2022-12-02T13:20:07.128Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/2d1c880e626e1744/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [none]
+[debug] [2022-12-02T13:20:07.129Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/2d1c880e626e1744/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [stream]
+[debug] [2022-12-02T13:20:07.131Z] [hosting][populate queue][FINAL] {"max":1159,"min":1159,"avg":1159,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1162}
+[debug] [2022-12-02T13:20:07.132Z] [hosting] uploads queued: 1
+[debug] [2022-12-02T13:21:23.150Z] [uploadQueue] Retrying task 878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b
+[debug] [2022-12-02T13:21:23.151Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/2d1c880e626e1744/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [none]
+[debug] [2022-12-02T13:21:23.151Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/2d1c880e626e1744/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [stream]
+[debug] [2022-12-02T13:21:44.959Z] [uploadQueue] Retrying task 878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b
+[debug] [2022-12-02T13:21:44.960Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/2d1c880e626e1744/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [none]
+[debug] [2022-12-02T13:21:44.961Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/2d1c880e626e1744/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [stream]
+[debug] [2022-12-02T13:23:02.181Z] [uploadQueue] Retrying task 878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b
+[debug] [2022-12-02T13:23:02.182Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/2d1c880e626e1744/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [none]
+[debug] [2022-12-02T13:23:02.182Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/2d1c880e626e1744/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [stream]
+[debug] [2022-12-02T13:24:21.003Z] [uploadQueue] Retrying task 878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b
+[debug] [2022-12-02T13:24:21.006Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/2d1c880e626e1744/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [none]
+[debug] [2022-12-02T13:24:21.007Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/2d1c880e626e1744/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [stream]
+[debug] [2022-12-02T13:25:43.027Z] [uploadQueue] Retrying task 878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b
+[debug] [2022-12-02T13:25:43.029Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/2d1c880e626e1744/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [none]
+[debug] [2022-12-02T13:25:43.029Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/2d1c880e626e1744/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [stream]
+[debug] [2022-12-02T13:27:12.292Z] ----------------------------------------------------------------------
+[debug] [2022-12-02T13:27:12.295Z] Command:       G:\Program Files\nodejs\node.exe G:\Users\sifat\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-12-02T13:27:12.295Z] CLI Version:   11.16.1
+[debug] [2022-12-02T13:27:12.295Z] Platform:      win32
+[debug] [2022-12-02T13:27:12.296Z] Node Version:  v16.18.0
+[debug] [2022-12-02T13:27:12.297Z] Time:          Fri Dec 02 2022 19:27:12 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-12-02T13:27:12.297Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-02T13:27:12.398Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-02T13:27:12.399Z] > authorizing via signed-in user (sifatami596@gmail.com)
+[debug] [2022-12-02T13:27:12.399Z] [iam] checking project reseller-1b724 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-02T13:27:12.402Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions [none]
+[debug] [2022-12-02T13:27:12.402Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions x-goog-quota-user=projects/reseller-1b724
+[debug] [2022-12-02T13:27:12.403Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-02T13:27:15.295Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions 200
+[debug] [2022-12-02T13:27:15.296Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-02T13:27:15.297Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/reseller-1b724 [none]
+[debug] [2022-12-02T13:27:16.044Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/reseller-1b724 200
+[debug] [2022-12-02T13:27:16.044Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/reseller-1b724 {"projectId":"reseller-1b724","projectNumber":"868111558377","displayName":"reseller","name":"projects/reseller-1b724","resources":{"hostingSite":"reseller-1b724"},"state":"ACTIVE","etag":"1_122aaac1-62d1-4a89-8d4c-185de68e3be6"}
+[info] 
+[info] === Deploying to 'reseller-1b724'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-12-02T13:27:16.054Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/reseller-1b724/versions [none]
+[debug] [2022-12-02T13:27:16.054Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/reseller-1b724/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-12-02T13:27:17.898Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/reseller-1b724/versions 200
+[debug] [2022-12-02T13:27:17.899Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/reseller-1b724/versions {"name":"projects/868111558377/sites/reseller-1b724/versions/b93d3fdac5707992","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[reseller-1b724]: beginning deploy... 
+[info] i  hosting[reseller-1b724]: found 18 files in build 
+[debug] [2022-12-02T13:27:17.927Z] [hosting] uploading with 200 concurrency
+[debug] [2022-12-02T13:27:17.935Z] [hosting] hash cache [YnVpbGQ] stored for 18 files
+[debug] [2022-12-02T13:27:17.936Z] [hosting][hash queue][FINAL] {"max":2,"min":0,"avg":0,"active":0,"complete":18,"success":18,"errored":0,"retried":0,"total":18,"elapsed":5}
+[debug] [2022-12-02T13:27:17.937Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/868111558377/sites/reseller-1b724/versions/b93d3fdac5707992:populateFiles [none]
+[debug] [2022-12-02T13:27:17.937Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/868111558377/sites/reseller-1b724/versions/b93d3fdac5707992:populateFiles {"files":{"/asset-manifest.json":"b8dcb52f96f01c9f1f806b8927b8e43091115032fb6005012ea491236961cc55","/categories.json":"9e03ed9bc0bdc44b925abba2a5d9caf5aeef326bcae641e53248923b5cbd082b","/favicon.ico":"eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9","/index.html":"7aec3080515fb66d5af21ed3c783d8ea3c0661b7dde901bd24ce51b0fea4390e","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/products.json":"46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/static/css/main.8597dada.css":"4979216eafaa8bfc389f0beed0856d8e6bc191e6c8dd5d6baae5471342412df5","/static/css/main.8597dada.css.map":"c42b5ddbe66aaaee43607914bf018da67fbf35b759ab10de8efa388e325c78cc","/static/js/main.2f9bef06.js":"234dc043d490e7d219fe5c0799f26d8d4625629f205ba83f1e300008f9ef90a3","/static/js/main.2f9bef06.js.LICENSE.txt":"f621b4e7f4e61953028a8d52b85cfaaac237bfffcb40034341de36786ecc3b16","/static/js/main.2f9bef06.js.map":"878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b","/static/media/404.40e3daac9b152a3ac693.jpg":"c6cac5c620d2fdbdaaac08dd2fc6f338801b07c151b40fbad8fcdb40135e0395","/static/media/banner1.939c742fa5c1db588c14.jpg":"ee53f57508ddb402acf8cf396dc2027de0bc301aab443e910ef9734b7f21c556","/static/media/banner2.b6b1a07e79a0989edefd.jpg":"fe2ca52d6b2ff6aaba07dae63e8b5e2ba1633f650a183d0efd16ba01273c78c3","/static/media/banner3.9d2e43df716f43929a6b.jpg":"de2b51e34c129dd9143f3eb8982833a96526780df3fa5e6039744da2df2b5de4"}}
+[debug] [2022-12-02T13:27:19.208Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/868111558377/sites/reseller-1b724/versions/b93d3fdac5707992:populateFiles 200
+[debug] [2022-12-02T13:27:19.209Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/868111558377/sites/reseller-1b724/versions/b93d3fdac5707992:populateFiles {"uploadRequiredHashes":["878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/b93d3fdac5707992/files"}
+[debug] [2022-12-02T13:27:19.211Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/b93d3fdac5707992/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [none]
+[debug] [2022-12-02T13:27:19.211Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/b93d3fdac5707992/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [stream]
+[debug] [2022-12-02T13:27:19.214Z] [hosting][populate queue][FINAL] {"max":1277,"min":1277,"avg":1277,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1280}
+[debug] [2022-12-02T13:27:19.214Z] [hosting] uploads queued: 1
+[debug] [2022-12-02T13:28:35.232Z] [uploadQueue] Retrying task 878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b
+[debug] [2022-12-02T13:28:35.234Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/b93d3fdac5707992/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [none]
+[debug] [2022-12-02T13:28:35.235Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/b93d3fdac5707992/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [stream]
+[debug] [2022-12-02T13:55:19.078Z] ----------------------------------------------------------------------
+[debug] [2022-12-02T13:55:19.081Z] Command:       G:\Program Files\nodejs\node.exe G:\Users\sifat\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2022-12-02T13:55:19.082Z] CLI Version:   11.16.1
+[debug] [2022-12-02T13:55:19.082Z] Platform:      win32
+[debug] [2022-12-02T13:55:19.082Z] Node Version:  v16.18.0
+[debug] [2022-12-02T13:55:19.083Z] Time:          Fri Dec 02 2022 19:55:19 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-12-02T13:55:19.083Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-02T13:55:19.180Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-02T13:55:19.181Z] > authorizing via signed-in user (sifatami596@gmail.com)
+[debug] [2022-12-02T13:55:19.181Z] [iam] checking project reseller-1b724 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-02T13:55:19.184Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions [none]
+[debug] [2022-12-02T13:55:19.185Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions x-goog-quota-user=projects/reseller-1b724
+[debug] [2022-12-02T13:55:19.185Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-02T13:55:21.422Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions 200
+[debug] [2022-12-02T13:55:21.422Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/reseller-1b724:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-02T13:55:21.424Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/reseller-1b724 [none]
+[debug] [2022-12-02T13:55:22.126Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/reseller-1b724 200
+[debug] [2022-12-02T13:55:22.127Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/reseller-1b724 {"projectId":"reseller-1b724","projectNumber":"868111558377","displayName":"reseller","name":"projects/reseller-1b724","resources":{"hostingSite":"reseller-1b724"},"state":"ACTIVE","etag":"1_122aaac1-62d1-4a89-8d4c-185de68e3be6"}
+[info] 
+[info] === Deploying to 'reseller-1b724'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-12-02T13:55:22.138Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/reseller-1b724/versions [none]
+[debug] [2022-12-02T13:55:22.139Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/reseller-1b724/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-12-02T13:55:24.729Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/reseller-1b724/versions 200
+[debug] [2022-12-02T13:55:24.730Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/reseller-1b724/versions {"name":"projects/868111558377/sites/reseller-1b724/versions/4881a4516908fcac","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[reseller-1b724]: beginning deploy... 
+[info] i  hosting[reseller-1b724]: found 18 files in build 
+[debug] [2022-12-02T13:55:24.767Z] [hosting] uploading with 200 concurrency
+[debug] [2022-12-02T13:55:24.775Z] [hosting] hash cache [YnVpbGQ] stored for 18 files
+[debug] [2022-12-02T13:55:24.775Z] [hosting][hash queue][FINAL] {"max":3,"min":1,"avg":1,"active":0,"complete":18,"success":18,"errored":0,"retried":0,"total":18,"elapsed":4}
+[debug] [2022-12-02T13:55:24.776Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/868111558377/sites/reseller-1b724/versions/4881a4516908fcac:populateFiles [none]
+[debug] [2022-12-02T13:55:24.776Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/868111558377/sites/reseller-1b724/versions/4881a4516908fcac:populateFiles {"files":{"/asset-manifest.json":"b8dcb52f96f01c9f1f806b8927b8e43091115032fb6005012ea491236961cc55","/categories.json":"9e03ed9bc0bdc44b925abba2a5d9caf5aeef326bcae641e53248923b5cbd082b","/favicon.ico":"eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9","/index.html":"7aec3080515fb66d5af21ed3c783d8ea3c0661b7dde901bd24ce51b0fea4390e","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/products.json":"46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/static/css/main.8597dada.css":"4979216eafaa8bfc389f0beed0856d8e6bc191e6c8dd5d6baae5471342412df5","/static/css/main.8597dada.css.map":"c42b5ddbe66aaaee43607914bf018da67fbf35b759ab10de8efa388e325c78cc","/static/js/main.2f9bef06.js":"234dc043d490e7d219fe5c0799f26d8d4625629f205ba83f1e300008f9ef90a3","/static/js/main.2f9bef06.js.LICENSE.txt":"f621b4e7f4e61953028a8d52b85cfaaac237bfffcb40034341de36786ecc3b16","/static/js/main.2f9bef06.js.map":"878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b","/static/media/404.40e3daac9b152a3ac693.jpg":"c6cac5c620d2fdbdaaac08dd2fc6f338801b07c151b40fbad8fcdb40135e0395","/static/media/banner1.939c742fa5c1db588c14.jpg":"ee53f57508ddb402acf8cf396dc2027de0bc301aab443e910ef9734b7f21c556","/static/media/banner2.b6b1a07e79a0989edefd.jpg":"fe2ca52d6b2ff6aaba07dae63e8b5e2ba1633f650a183d0efd16ba01273c78c3","/static/media/banner3.9d2e43df716f43929a6b.jpg":"de2b51e34c129dd9143f3eb8982833a96526780df3fa5e6039744da2df2b5de4"}}
+[debug] [2022-12-02T13:55:26.012Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/868111558377/sites/reseller-1b724/versions/4881a4516908fcac:populateFiles 200
+[debug] [2022-12-02T13:55:26.013Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/868111558377/sites/reseller-1b724/versions/4881a4516908fcac:populateFiles {"uploadRequiredHashes":["878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/4881a4516908fcac/files"}
+[debug] [2022-12-02T13:55:26.018Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/4881a4516908fcac/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [none]
+[debug] [2022-12-02T13:55:26.018Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/reseller-1b724/versions/4881a4516908fcac/files/878adce9235f795301c2786bcfd730f2d765026b93474c8fa9301f38a4fe149b [stream]
+[debug] [2022-12-02T13:55:26.021Z] [hosting][populate queue][FINAL] {"max":1244,"min":1244,"avg":1244,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1247}
+[debug] [2022-12-02T13:55:26.021Z] [hosting] uploads queued: 1

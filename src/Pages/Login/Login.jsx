@@ -33,7 +33,7 @@ const Login = () => {
 
                 // jwt
 
-                fetch("http://localhost:5000/jwt", {
+                fetch("https://assignment-12-server-brown.vercel.app/jwt", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -54,7 +54,7 @@ const Login = () => {
 
     const saveUser = (name, email, identity) => {
         const user = { name, email, identity };
-        fetch("http://localhost:5000/buyers", {
+        fetch("https://assignment-12-server-brown.vercel.app/buyers", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -79,7 +79,7 @@ const Login = () => {
                 };
                 // jwt
 
-                fetch("http://localhost:5000/jwt", {
+                fetch("https://assignment-12-server-brown.vercel.app/jwt", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -107,7 +107,7 @@ const Login = () => {
             <div className="hero">
                 <div className="card-body border w-[386px] h-[480px] bg-base-100">
                     <form onSubmit={handleSubmit(onSubmit)} className=" ">
-                        <h1 className="font-semibold text-3xl text-center">
+                        <h1 className="font-semibold text-3xl text-center text-white">
                             Login
                         </h1>
                         <p className="text-red-400">{loginError}</p>

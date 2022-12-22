@@ -7,21 +7,26 @@ const Buyers = () => {
     const { data: buyers = [], refetch } = useQuery({
         queryKey: ["buyers"],
         queryFn: async () => {
-            const res = await fetch("http://localhost:5000/buyers");
+            const res = await fetch(
+                "https://assignment-12-server-brown.vercel.app/buyers"
+            );
             const data = await res.json();
             return data;
         },
     });
 
     const handleMakeAdmin = (id) => {
-        fetch(`http://localhost:5000/buyers/admin/${id}`, {
-            method: "PUT",
-            headers: {
-                authorization: `bearer ${localStorage.getItem(
-                    "resellerToken"
-                )}`,
-            },
-        })
+        fetch(
+            `https://assignment-12-server-brown.vercel.app/buyers/admin/${id}`,
+            {
+                method: "PUT",
+                headers: {
+                    authorization: `bearer ${localStorage.getItem(
+                        "resellerToken"
+                    )}`,
+                },
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -38,9 +43,12 @@ const Buyers = () => {
         );
 
         if (agree) {
-            fetch(`http://localhost:5000/buyer/delete/${_id}`, {
-                method: "DELETE",
-            })
+            fetch(
+                `https://assignment-12-server-brown.vercel.app/buyer/delete/${_id}`,
+                {
+                    method: "DELETE",
+                }
+            )
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);

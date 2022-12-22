@@ -48,7 +48,8 @@ const Footer = () => {
             </div>
             <div>
                 <p>
-                    Copyright © 2022 - All right reserved by ACME Industries Ltd
+                    Copyright © 2022 - All right reserved by Moshiur Rahman
+                    Sifat
                 </p>
             </div>
         </footer>

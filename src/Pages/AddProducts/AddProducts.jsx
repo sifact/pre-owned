@@ -38,13 +38,16 @@ const AddProducts = () => {
             email: user?.email,
         };
 
-        fetch(`http://localhost:5000/addedProducts/${brand}`, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(addedProducts),
-        })
+        fetch(
+            `https://assignment-12-server-brown.vercel.app/addedProducts/${brand}`,
+            {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify(addedProducts),
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -53,7 +56,7 @@ const AddProducts = () => {
                     navigate("/dashboard/addedProducts");
                 }
             });
-        fetch(`http://localhost:5000/addedProducts`, {
+        fetch(`https://assignment-12-server-brown.vercel.app/addedProducts`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",

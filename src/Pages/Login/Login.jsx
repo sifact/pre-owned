@@ -106,7 +106,7 @@ const Login = () => {
         <div className="my-16">
             <div className="hero">
                 <div className="card-body border w-[386px] h-[480px] bg-base-100">
-                    <form onSubmit={handleSubmit(onSubmit)} className=" ">
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <h1 className="font-semibold text-3xl text-center text-white">
                             Login
                         </h1>

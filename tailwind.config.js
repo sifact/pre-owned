@@ -6,8 +6,8 @@ module.exports = {
         themes: [
             {
                 resaleTheme: {
-                    primary: "#eab308",
-                    secondary: "#ef4444",
+                    primary: "#65a30d",
+                    secondary: "#111827",
                     // "base-200": "#0E1525",
 
                     accent: "#3A4256",
@@ -19,6 +19,14 @@ module.exports = {
         ],
     },
     theme: {
+        screens: {
+            xsm: "360px",
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1280px",
+            xxl: "1590px",
+        },
         extend: {},
     },
     plugins: [require("daisyui")],

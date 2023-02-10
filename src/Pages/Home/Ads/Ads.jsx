@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Add from "./Add/Add";
+import Carousel from "react-elastic-carousel";
 
+const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2 },
+    { width: 768, itemsToShow: 3 },
+    { width: 1200, itemsToShow: 4 },
+];
 const Ads = () => {
     const { data: products = [] } = useQuery({
         queryKey: ["products"],
@@ -14,15 +21,15 @@ const Ads = () => {
         },
     });
     return (
-        <div className="container my-20">
-            <h1 className="text-3xl my-12 text-center text-white">
-                Advertisements
+        <div className=" my-48">
+            <h1 className="text-3xl my-28 text-center font-bold text-white">
+                | Advertisements
             </h1>
-            <div className="grid gap-4 grid-cols-1 md:grid-col-2 lg:grid-cols-2 justify-center ">
+            <Carousel breakPoints={breakPoints}>
                 {products.map((product, idx) => (
                     <Add key={idx} product={product} />
                 ))}
-            </div>
+            </Carousel>
         </div>
     );
 };

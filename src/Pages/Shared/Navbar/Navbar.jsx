@@ -49,7 +49,7 @@ const Navbar = () => {
                         <Link to="/login">Login</Link>
                     </li>
                     <Link
-                        className=" btn btn-primary text-white"
+                        className=" bg-primary py-2 px-4 rounded-sm text-white"
                         to="/register"
                     >
                         Sign up
@@ -62,9 +62,9 @@ const Navbar = () => {
     );
 
     return (
-        <section className="bg-base-200">
+        <section className="bg-base-200 py-2">
             <div className=" flex">
-                <div className="navbar p-0 m-0 container">
+                <div className="navbar p-0 m-0 container mx-auto">
                     <div className="navbar-start ">
                         <div className="dropdown">
                             <label
@@ -100,32 +100,32 @@ const Navbar = () => {
                             Pre-Owned
                         </Link>
                     </div>
-                    <div className="navbar-center hidden lg:flex">
+                    <div className="navbar-end hidden lg:flex">
                         <ul className="menu menu-horizontal p-0">
                             {menuItems}
                         </ul>
                     </div>
-                </div>
-                <label
-                    htmlFor="dashboardDrawer"
-                    tabIndex={2}
-                    className="btn btn-ghost lg:hidden"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+                    <label
+                        htmlFor="dashboardDrawer"
+                        tabIndex={2}
+                        className="btn btn-ghost lg:hidden"
                     >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M4 6h16M4 12h8m-8 6h16"
-                        />
-                    </svg>
-                </label>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M4 6h16M4 12h8m-8 6h16"
+                            />
+                        </svg>
+                    </label>
+                </div>
             </div>
         </section>
     );

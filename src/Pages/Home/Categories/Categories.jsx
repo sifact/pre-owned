@@ -15,9 +15,9 @@ const Categories = () => {
     });
 
     return (
-        <div className="container my-32">
+        <div className="container mx-auto my-32">
             <h1 className="text-4xl text-center font-semibold mt-12 mb-24 text-white">
-                Major brands
+                | Major brands
             </h1>
 
             <div className="grid gap-6 grid-col-1 md:grid-cols-2 lg:grid-cols-3">

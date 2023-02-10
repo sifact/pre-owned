@@ -3,7 +3,7 @@ import img from "../../../assets/banner/banner3.jpg";
 
 const About = () => {
     return (
-        <div className="hero bg-info py-20 mb-20">
+        <div className="hero bg-base-200 py-20 mb-20">
             <div className="container hero-content flex-col lg:flex-row">
                 <img
                     src={img}

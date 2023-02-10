@@ -10,20 +10,22 @@ const ProductsDetails = () => {
     const { title, products } = brand;
 
     return (
-        <div className="container my-20">
-            <h1 className="text-3xl my-12 text-center text-white">
-                {title} collections
-            </h1>
-            <div className="grid gap-4 grid-cols-1 md:grid-col-2 lg:grid-cols-2 justify-center ">
-                {products.map((product, idx) => (
-                    <ProductDetails
-                        key={idx}
-                        product={product}
-                        setItem={setItem}
-                    />
-                ))}
+        <div className="container mx-auto my-20 flex justify-center">
+            <div>
+                <h1 className="text-3xl my-12 text-center text-white font-bold">
+                    | {title} collections
+                </h1>
+                <div className="grid gap-12 grid-cols-2 md:grid-col-3 lg:grid-cols-4 justify-center ">
+                    {products.map((product, idx) => (
+                        <ProductDetails
+                            key={idx}
+                            product={product}
+                            setItem={setItem}
+                        />
+                    ))}
+                </div>
+                {item && <BookingModal item={item} setItem={setItem} />}
             </div>
-            {item && <BookingModal item={item} setItem={setItem} />}
         </div>
     );
 };
